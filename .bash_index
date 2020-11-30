@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[ -f $HOME/.dotfiles/.bash_aliases ] && . $HOME/.dotfiles/.bash_aliases
+[ -f $HOME/.dotfiles/.bash_prompt ] && . $HOME/.dotfiles/.bash_prompt
