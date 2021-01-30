@@ -1,1 +1,4 @@
+#!/bin/bash
+
+# colorize
 alias cat="ccat"

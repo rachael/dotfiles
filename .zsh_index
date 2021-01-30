@@ -1,2 +1,2 @@
-[ -f .aliases ] && source .aliases
-[ -f .plugin_aliases ] && source .plugin_aliases
+[ -f $HOME/.dotfiles/.aliases ] && source $HOME/.dotfiles/.aliases
+[ -f $HOME/.dotfiles/.plugin_aliases ] && source $HOME/.dotfiles/.plugin_aliases
