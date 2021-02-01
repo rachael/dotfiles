@@ -2,3 +2,4 @@
 
 # colorize
 alias cat="ccat"
+alias less="cless"
