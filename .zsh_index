@@ -1,2 +1,17 @@
-[ -f $HOME/.dotfiles/.aliases ] && source $HOME/.dotfiles/.aliases
-[ -f $HOME/.dotfiles/.plugin_aliases ] && source $HOME/.dotfiles/.plugin_aliases
+#!/bin/sh
+
+# imports
+[ -f $HOME/.dotfiles/aliases/.aliases ] && source $HOME/.dotfiles/aliases/.aliases
+[ -f $HOME/.dotfiles/aliases/.plugin_aliases ] && source $HOME/.dotfiles/aliases/.plugin_aliases
+
+# functions
+fpath=(
+    $HOME/.dotfiles/bin
+    $HOME/.dotfiles/bin/**/*~*/(CVS)#(/N)
+    "${fpath[@]}"
+)
+
+autoload -Uz metroid
+
+# motd
+metroid --super
