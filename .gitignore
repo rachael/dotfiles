@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# But not these files.
+!.gitignore
+!.gitconfig
+!.gitignore_global
+!.gitattributes_global
+!.vimrc
+!.zshrc
+!README.md
+!.fasd
+
+# Ignore so we won't commit these in the allowed dirctories.
+.DS_Store
