@@ -72,6 +72,9 @@ ZSH_THEME="af-magic"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git fzf zsh-interactive-cd fasd nvm per-directory-history yarn)
 
+# custom config
+[ -e "$HOME/.oh-my-zsh/custom/.zshrc" ] && source "$HOME/.oh-my-zsh/custom/.zshrc"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -105,7 +108,6 @@ alias v='f -e vim' # quick opening files with vim
 alias m='f -e vlc' # quick opening files with vlc
 alias o='a -e open' # quick opening files with open
 
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -122,3 +124,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 # fasd shell integration https://github.com/d10xa/fasd
 eval "$(fasd --init auto)"
+
