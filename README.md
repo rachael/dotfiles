@@ -25,6 +25,14 @@ dotfiles checkout        # fails if a tracked file already exists; move it aside
 `.gitignore` ignores everything except the listed dotfiles, so `dotfiles add`
 only ever picks up what is explicitly allowed.
 
+## Versioning
+
+Tags on `v2`. `v2.0` (2026-09-14) is the AI edition: the point where these
+dotfiles started being maintained with and for AI agents (agent-log git
+aliases, the bare git dir so agents running under `~` stop mistaking it for a
+repo). Minor versions (`v2.1`, `v2.2`, ...) from here until something major
+changes the setup again; a major bump is a decision, not a habit.
+
 ## Not installed by this repo
 
 - [iTerm 2](https://iterm2.com/)
