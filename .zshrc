@@ -125,3 +125,28 @@ eval "$(fzf --zsh)"
 # fasd shell integration https://github.com/d10xa/fasd
 eval "$(fasd --init auto)"
 
+
+eval $(thefuck --alias)
+export PATH="$HOME/.local/bin:$PATH"
+
+# dotfiles: the git dir lives at ~/.dotfiles.git so that ~ itself is not a git
+# worktree (otherwise every tool run under ~ thinks it is inside this repo).
+# Files stay in place at ~; manage them with `dotfiles` instead of `git`.
+alias dotfiles='git --git-dir="$HOME/.dotfiles.git" --work-tree="$HOME"'
+
+# pnpm
+export PNPM_HOME="/Users/rae/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# OpenClaw Completion
+[ -f "/Users/rae/.openclaw/completions/openclaw.zsh" ] && source "/Users/rae/.openclaw/completions/openclaw.zsh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# opencode
+export PATH=/Users/rae/.opencode/bin:$PATH
