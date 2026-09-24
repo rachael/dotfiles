@@ -150,3 +150,17 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # opencode
 export PATH=/Users/rae/.opencode/bin:$PATH
+
+# Commit this tab's iTerm capture (~/logs/iterm2, auto-logged by the "Dark"
+# profile) to the logs repo when the shell exits. Waits a few seconds so iTerm
+# has flushed and closed the file; the nightly archivist scan catches anything
+# missed. Closing a tab sends HUP, which skips zshexit, hence the trap too.
+if [[ -n "$ITERM_SESSION_ID" && -z "$CLAUDECODE" ]]; then
+  _archive_iterm_capture() {
+    nohup /bin/sh -c 'sleep 5; exec /opt/homebrew/bin/python3 "$0" "$HOME/logs" -m "iTerm capture: tab closed" --push -- iterm2' \
+      "$HOME/Documents/Documents - RaeM2Pro/Projects/AI-OS/dev/skills/archivist/tools/commit-now.py" >/dev/null 2>&1 &!
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook zshexit _archive_iterm_capture
+  TRAPHUP() { _archive_iterm_capture; return $(( 128 + $1 )) }
+fi
